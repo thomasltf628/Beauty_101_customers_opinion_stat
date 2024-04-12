@@ -31,6 +31,19 @@
   </div>
 </nav>
   <h1 class="text-center"> Brand Analysis</h1>
+  <form class="p-3 text-center" action="/sentiment" method="post" value=""  enctype="multipart/form-data">
+    <input class="form-control" type="text" name="user" placeholder="enter your review">
+    <br>
+    <input class="btn btn-primary mt-3" type="submit" value="Review Sentiment">
+  </form>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="p-3 text-center" style="font-size:large;">
+    <p> <i><b>Customer says: </b></i>{{ text }}</p>
+    <p> {{ sentiment }} </p>
+  </div>
   <form class="p-3 text-center" action="/analysis" method="post" value="brand"  enctype="multipart/form-data">
     <input class="form-control" type="file" name="file">
     <br>
@@ -39,16 +52,11 @@
 
    <br>
    <br>
-  <table>
-    <tr>
-      <th>Positive:</th>
-      <td> {{ positive }}</td>
-    </tr>
-    <tr>
-      <th>Negative:</th>
-      <td> {{ negative }}</td>
-    </tr>
-  </table>
+
+  <div class="p-3 text-center" style="font-size:large;">
+    <p class="abs" ><b>Positive: </b> {{ positive }} </p>
+    <p class="abs" ><b>Negative: </b> {{ negative }}  </p>
+  </div>
     <footer style="font-size:medium;">
       <p class="new">©<a href="https://www.sephora.com/ca/en/?country_switch=ca&lang=en">Sephora</a> </p>
     </footer>
