@@ -6,9 +6,10 @@ from keras.preprocessing.text import tokenizer_from_json
 import json
 
 app=Flask(__name__)
-model = load_model(r'C:\Users\super\OneDrive\桌面\adcademic\2000 ML\final project\Beauty_101_app\Beauty_101_app\model_filename.h5')
-
-with open(r'C:\Users\super\OneDrive\桌面\adcademic\2000 ML\final project\Beauty_101_app\Beauty_101_app\tokenizer.json') as f:
+#model = load_model(r'C:\Users\super\OneDrive\桌面\adcademic\2000 ML\final project\Beauty_101_app\Beauty_101_app\model_filename.h5')
+model = load_model(r'/home/ubuntu/Beauty_101_customers_opinion_stat/Beauty_101_app/model_filename.h5')
+#model = load_model(r'C:\Users\super\OneDrive\桌面\adcademic\2000 ML\final project\Beauty_101_app\Beauty_101_app\tokenizer.json')
+with open(r'/home/ubuntu/Beauty_101_customers_opinion_stat/Beauty_101_app/tokenizer.json', 'r', encoding='utf-8') as f:
     data = json.load(f)
     tokenizer = tokenizer_from_json(data)
 
@@ -56,12 +57,12 @@ def classify():
         text_collection['review_text'] = text_collection['review_text'].astype(str)
         pos = 0
         neg = 0
-        for text in text_collection['review_text'][155:170]:
+        for text in text_collection['review_text'][170:190]:
             processed_text = preprocess_text(text, tokenizer, 604)
             sentiment = predict_sentiment(processed_text, model)            
             x = softmax2label(sentiment[0][0])
             print(text)
-            print(x)
+            print(sentiment[0][0])
             if x == "Positive":
                 pos += 1
             else:
