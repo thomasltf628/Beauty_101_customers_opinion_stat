@@ -13,7 +13,6 @@ with open(r'C:\Users\super\OneDrive\桌面\adcademic\2000 ML\final project\Beaut
     tokenizer = tokenizer_from_json(data)
 
 from keras.preprocessing.sequence import pad_sequences
-from keras.preprocessing.text import Tokenizer
 #text = pd.read_csv(r'C:\Users\super\OneDrive\桌面\adcademic\2000 ML\final project\Beauty_101_app\Beauty_101_app\test.csv')
 #text_collection = text['review_title_and_text']
 
@@ -39,7 +38,7 @@ def inputs():
 def sentiment():
     if request.method == 'POST':
         review= request.form.get("user")
-        processed_text = preprocess_text(review, tokenizer, 553)
+        processed_text = preprocess_text(review, tokenizer, 604)
         sentiment = predict_sentiment(processed_text, model)
         feelings = softmax2label(sentiment[0][0])
     return render_template('index.html', text=review, sentiment=feelings)
@@ -54,14 +53,14 @@ def classify():
         return 'No selected file'
     if file:
         text_collection = pd.read_csv(file)
-        text_collection['review_title_and_text'] = text_collection['review_title_and_text'].astype(str)
-        pos = -15
-        neg = 15
-        for text in text_collection['review_title_and_text'][500:550]:
-            processed_text = preprocess_text(text, tokenizer, 553)
-            sentiment = predict_sentiment(processed_text, model)
-            print(sentiment)
+        text_collection['review_text'] = text_collection['review_text'].astype(str)
+        pos = 0
+        neg = 0
+        for text in text_collection['review_text'][155:170]:
+            processed_text = preprocess_text(text, tokenizer, 604)
+            sentiment = predict_sentiment(processed_text, model)            
             x = softmax2label(sentiment[0][0])
+            print(text)
             print(x)
             if x == "Positive":
                 pos += 1
