@@ -71,5 +71,5 @@ def classify():
 
         return render_template('index.html',positive=pos, negative=neg)
 
-if __name__=='__main__':
-    app.run()
+if __name__ == '__main__':
+    app.run(host='0.0.0.1', port=5000)
