@@ -57,7 +57,7 @@ def classify():
         text_collection['review_text'] = text_collection['review_text'].astype(str)
         pos = 0
         neg = 0
-        for text in text_collection['review_text'][0:3]:
+        for text in text_collection['review_text'][1:4]:
             processed_text = preprocess_text(text, tokenizer, 604)
             sentiment = predict_sentiment(processed_text, model)            
             x = softmax2label(sentiment[0][0])
