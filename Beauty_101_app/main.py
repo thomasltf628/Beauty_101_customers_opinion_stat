@@ -8,7 +8,7 @@ import json
 app=Flask(__name__)
 #model = load_model(r'C:\Users\super\OneDrive\桌面\adcademic\2000 ML\final project\Beauty_101_app\Beauty_101_app\model_filename.h5')
 model = load_model(r'/home/ubuntu/Beauty_101_customers_opinion_stat/Beauty_101_app/model_filename.h5')
-#model = load_model(r'C:\Users\super\OneDrive\桌面\adcademic\2000 ML\final project\Beauty_101_app\Beauty_101_app\tokenizer.json')
+#r'C:\Users\super\OneDrive\桌面\adcademic\2000 ML\final project\Beauty_101_app\Beauty_101_app\tokenizer.json'
 with open(r'/home/ubuntu/Beauty_101_customers_opinion_stat/Beauty_101_app/tokenizer.json', 'r', encoding='utf-8') as f:
     data = json.load(f)
     tokenizer = tokenizer_from_json(data)

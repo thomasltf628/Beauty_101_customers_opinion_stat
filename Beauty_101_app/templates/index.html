@@ -44,6 +44,8 @@
     <p> <i><b>Customer says: </b></i>{{ text }}</p>
     <p> {{ sentiment }} </p>
   </div>
+  <p>Please upload a csv file with a column named 'review_text' and words under it</p>
+  <p>Sorry for the fact that we could only process three of the sentence in it due to the limited computing power as renting good instance in AWS makes me broken</p>
   <form class="p-3 text-center" action="/analysis" method="post" value="brand"  enctype="multipart/form-data">
     <input class="form-control" type="file" name="file">
     <br>
