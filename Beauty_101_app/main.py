@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd
 from keras.preprocessing.text import tokenizer_from_json
 import json
+import time
 
 app=Flask(__name__)
 #model = load_model(r'C:\Users\super\OneDrive\桌面\adcademic\2000 ML\final project\Beauty_101_app\Beauty_101_app\model_filename.h5')
@@ -63,6 +64,7 @@ def classify():
             x = softmax2label(sentiment[0][0])
             print(text)
             print(sentiment[0][0])
+            time.sleep(5)
             if x == "Positive":
                 pos += 1
             else:
