@@ -43,6 +43,8 @@ def sentiment():
         processed_text = preprocess_text(review, tokenizer, 604)
         sentiment = predict_sentiment(processed_text, model)
         feelings = softmax2label(sentiment[0][0])
+        print(review)
+        print(sentiment[0][0])
     return render_template('index.html', text=review, sentiment=feelings)
 
 @app.route('/analysis',methods=['POST'])
